@@ -1,0 +1,261 @@
+/* Estilos gerais */
+body {
+    background-color: #1a1a1a;
+    color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilos de cabeçalho */
+header {
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    height: auto;
+    max-height: 60px;
+    width: auto;
+    max-width: 100px;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-family: "Arial", sans-serif;
+    color: #fff;
+    text-align: center;
+    flex-grow: 1;
+    margin: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Conteúdo principal */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+
+/* Estilos de feedback */
+#feedback {
+    font-size: 18px;
+    color: #f8f9fa;
+    transition: opacity 0.5s ease;
+}
+
+/* Caixas de letras */
+.guess-row {
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.letter-box {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #555;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #f8f9fa;
+    background-color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+/* Cores e animações */
+.letter-box.correct {
+    background-color: #4CAF50;
+    color: #fff;
+    animation: fadeIn 0.5s, pulse 1s infinite;
+}
+
+.letter-box.present {
+    background-color: #FFC107;
+    color: #fff;
+    animation: fadeIn 0.5s, pulse 1s infinite;
+}
+
+.letter-box.absent {
+    background-color: #9E9E9E;
+    color: #fff;
+    animation: fadeIn 0.5s, shake 0.5s;
+}
+
+input[type="text"] {
+    -moz-appearance: textfield;
+}
+
+input[type="text"]::-webkit-outer-spin-button,
+input[type="text"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.feedback-bright {
+    animation: brightEffect 0.5s forwards;
+}
+
+@keyframes brightEffect {
+    0% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+    50% { text-shadow: 0 0 10px rgba(255, 215, 0, 1); }
+    100% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+}
+
+.feedback {
+    opacity: 0;
+}
+
+.feedback.show {
+    opacity: 1;
+}
+
+/* Rodapé */
+footer {
+    background-color: #045cac;
+    color: #fff;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    header {
+        padding: 8px 15px;
+    }
+
+    .logo {
+        max-height: 50px;
+        max-width: 80px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .letter-box {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+
+    main {
+        padding: 10px;
+        margin-top: 70px;
+        margin-bottom: 50px;
+    }
+
+    #feedback {
+        font-size: 14px;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        padding: 5px 10px;
+    }
+
+    .logo {
+        max-height: 40px;
+        max-width: 60px;
+    }
+
+    h1 {
+        font-size: 1rem;
+        margin-top: 5px;
+        text-align: center;
+    }
+
+    .letter-box {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    main {
+        padding: 8px;
+        margin-top: 60px;
+        margin-bottom: 40px;
+    }
+
+    #feedback {
+        font-size: 12px;
+    }
+}
+
+/* Ajustes para telas muito estreitas */
+@media (max-width: 360px) {
+    .logo {
+        max-height: 35px;
+        max-width: 50px;
+    }
+
+    h1 {
+        font-size: 0.9rem;
+    }
+
+    .letter-box {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    main {
+        margin-top: 55px;
+        margin-bottom: 35px;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+}
